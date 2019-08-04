@@ -27,11 +27,11 @@
           <%= image_tag 'course_bg.jpg', alt: 'course-image-default', class: 'card-img' %>
         <% end %>
         <div class="card-img-overlay">
-            <h5 class="card-title mb-1">
-              <strong><%= link_to lesson.course.title, course_path(lesson.course, lesson_page: lesson.position), class: 'stretched-link' %></strong>
-            </h5>
-            <small class="card-subtitle mt-1"><i>by <%= lesson.course.tutor.name %></i></small>
-            <h2 class="text-light mt-3"><%= lesson.name %></h2>
+          <h5 class="card-title mb-1">
+            <strong><%= link_to lesson.course.title, course_path(lesson.course, lesson_page: lesson.position), class: 'stretched-link' %></strong>
+          </h5>
+          <small class="card-subtitle mt-1"><i>by <%= lesson.course.tutor.name %></i></small>
+          <h2 class="text-light mt-3"><%= lesson.name %></h2>
         </div>
       </div>
 
@@ -40,6 +40,49 @@
   </div>
 
 <% end %>
+
+<% if student? %>
+
+<% else %>
+  <!-- Mr Ngoh profile -->
+
+  <div class="container">
+    <div class="row">
+      <h1>Welcome to the Music Academy!</h1>
+    </div>
+
+    <div class="row">
+      <div class="col-6">
+        <%= image_tag "profile.jpeg", class: 'img-fluid' %>
+      </div>
+
+      <div class="col-6">
+        <h1> Mr Wang Runding</h1>
+        <p class="p-4">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda hic laborum nam, nemo optio quo
+          rem, repellendus, reprehenderit saepe sapiente sequi sint unde. Asperiores blanditiis commodi cumque
+          distinctio eaque eius esse id illum in labore molestiae mollitia nesciunt odio porro praesentium
+          quasi quia, quidem rerum sapiente ullam velit vero voluptatem.
+        </p>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+
+<% if logged_out? %>
+  <div class="container my-5">
+    <div class="home-signup row">
+      <div class="signup-student col">
+        <h2 class="my-5">
+          Wish to start learning now?<br>
+          <strong><%= link_to 'Sign up as a student.', signup_path(user_type: 'Student') %></strong>
+        </h2>
+      </div>
+    </div>
+  </div>
+<% end %>
+
 
 <% if !student? && @courses_beginners.any? %>
   <%= render 'courses/collection', heading: 'Courses for Beginners', courses: @courses_beginners %>
@@ -59,54 +102,8 @@
   <%= render 'courses/collection', heading: 'What Students are Looking at Right Now', courses: @courses_hot %>
 <% end %>
 
-<% if @tutors.any? %>
-
-  <h3 class="home-tutors-heading mt-5">
-    <strong>
-      <%= link_to 'Some of Our Tutors', tutors_path %>
-    </strong>
-  </h3>
-
-  <%= render 'tutors/collection', heading: '', tutors: @tutors %>
-
-<% end %>
-
-<h3 class="text-left mt-5 mb-3">
-  <strong>
-    Searching for an instrument?
-  </strong>
-</h3>
-
-<% if @courses_instrument.any? %>
-  <%= render 'courses/collection', heading: "#{@instrument} Courses", courses: @courses_instrument %>
-<% end %>
-
-<% if @courses_instrument_two.any? %>
-  <%= render 'courses/collection', heading: "#{@instrument_two} Courses", courses: @courses_instrument_two %>
-<% end %>
-
 <h3 class="my-3">
   <strong>
     <%= link_to 'Check out more courses here!', courses_path, style: 'color: gray;' %>
   </strong>
 </h3>
-
-<% if logged_out? %>
-  <div class="container my-5">
-    <div class="home-signup row">
-      <div class="signup-student col">
-        <h2 class="my-5">
-          Wish to start learning now?<br>
-          <strong><%= link_to 'Sign up as a student.', signup_path(user_type: 'Student') %></strong>
-        </h2>
-      </div>
-      <div class="divider"></div>
-      <div class="signup-tutor col">
-        <h2 class="my-5">
-          Want to spread your musical knowledge?<br>
-          <strong><%= link_to 'Sign up as a tutor.', signup_path(user_type: 'Tutor') %></strong>
-        </h2>
-      </div>
-    </div>
-  </div>
-<% end %>

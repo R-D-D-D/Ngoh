@@ -39,17 +39,6 @@ class StaticPagesController < ApplicationController
     .reorder(popularity: :desc)
     .offset(rand(1..8))
     .limit(4)
-
-    # Instrument Courses 1
-    @instrument = Faker::Music.instrument
-    @courses_instrument = instrument_collection(@instrument)
-
-    # Instrument Courses 2
-    @instrument_two = Faker::Music.instrument
-    while @instrument_two == @instrument
-      @instrument_two = Faker::Music.instrument
-    end
-    @courses_instrument_two = instrument_collection(@instrument_two)
   end
 
   def signup
@@ -74,11 +63,4 @@ class StaticPagesController < ApplicationController
     @greeting = greetings[selection]
   end
 
-  # Returns a collection of courses involving the given instrument
-  def instrument_collection(instrument)
-    Course
-    .where('LOWER(title) LIKE ? AND rating > ?', "%#{instrument.downcase}%", '2')
-    .reorder(Arel.sql('RANDOM()'))
-    .limit(4)
-  end
 end

@@ -1,10 +1,10 @@
 <% if yield(:title) == "Home" && !student? %>
 
-  <div class="container-fluid home-bg">
+  <div class="container-fluid">
 
-    <div class="row mb-5">
-      <div class="col">
-        <nav class="navbar navbar-expand-lg navbar-dark" id="home-nav">
+    <div class="row" style="height: 56px;">
+      <div class="col pb-0">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
           <%= render 'layouts/navbar' %>
         </nav>
       </div>
@@ -21,39 +21,6 @@
         </div>
       </div>
     <% end %>
-
-    <div class="home-text row">
-      <div class="col offset-md-1 mt-4">
-        <h3 class="text-light text-left mb-2" style="margin-top:1%;">
-          Welcome to
-        </h3>
-        <h1 class="text-light text-left">
-          The Music Academy
-        </h1>
-        <%= render 'static_pages/home_search' %>
-      </div>
-    </div>
-
-    <div class="home-features row align-items-end" style="margin-top:-1%;">
-      <div class="col">
-        <h2 class="text-light">
-          <ul class="list-inline" id="features-list">
-            <li class="list-inline-item">
-              <strong>Hundreds of Courses</strong><br>
-              <small>with a wide variety of instruments</small>
-            </li>
-            <li class="list-inline-item">
-              <strong>Dozens of Experienced Tutors</strong><br>
-              <small>from all around the globe</small>
-            </li>
-            <li class="list-inline-item">
-              <strong>One Course, One Price</strong><br>
-              <small>pay once to get it all</small>
-            </li>
-          </ul>
-        </h2>
-      </div>
-    </div>
 
   </div>
 
@@ -86,11 +53,9 @@
       <div class="col offset-md-1">
 
         <h1 class="text-light text-left mb-3" style="margin-top:2%;">
-          <%= @greeting %>, <%= current_user.name %>!
+          <%= "Welcome Back!" %>, <%= current_user.name %>!
         </h1>
-        <h2 class="text-light text-left mb-4">
-          Our <%= @greeting_language %> tutors say hello.
-        </h2>
+        
         <%= render 'static_pages/home_search' %>
 
       </div>
@@ -101,11 +66,13 @@
 
 <% else %>
 
-  <div class="row">
-    <div class="col pb-0">
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-        <%= render 'layouts/navbar' %>
-      </nav>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col pb-0">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+          <%= render 'layouts/navbar' %>
+        </nav>
+      </div>
     </div>
   </div>
 
