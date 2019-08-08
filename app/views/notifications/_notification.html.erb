@@ -14,37 +14,38 @@
         </div>
     <% end %>
 
-      <div class="col">
+    <div class="col">
 
-        <% if notification.origin_type == 'Review' %>
-          <%= link_to notification.content, course_path(notification.origin.course, notified_id: notification.id, anchor: 'reviews') %>
+      <% if notification.origin_type == 'Review' %>
+        <%= link_to notification.content, course_path(notification.origin.course, notified_id: notification.id, anchor: 'reviews') %>
 
-        <% elsif notification.origin_type == 'Course' %>
-          <%= link_to notification.content, course_path(notification.origin, notified_id: notification.id) %>
+      <% elsif notification.origin_type == 'Course' %>
+        <%= link_to notification.content, course_path(notification.origin, notified_id: notification.id) %>
 
-        <% elsif notification.origin_type == 'Post' || notification.origin_type == 'Message' %>
-          <%= link_to notification.content, course_path(notification.lesson.course, notified_id: notification.id, lesson_page: notification.lesson.position, anchor: "forum") %>
+      <% elsif notification.origin_type == 'Post' || notification.origin_type == 'Message' %>
+        <%= link_to notification.content, course_path(notification.lesson.course, notified_id: notification.id, lesson_page: notification.lesson.position, anchor: "forum") %>
 
-        <% end %>
-
-      </div>
+      <% end %>
 
     </div>
 
-  </div>
+    </div>
 
-  <div class="col-2">
-    <% unless notification.read %>
-      <% if tutor? %>
-        <%= link_to 'mark as read', tutor_path(current_user, tab: 'notifications', mark_read: notification.id), remote: true %>
-      <% else %>
-        <%= link_to 'mark as read', student_path(current_user, tab: 'notifications', mark_read: notification.id) %>
+    </div>
+
+    <div class="col-2">
+      <% unless notification.read %>
+        <% if tutor? %>
+          <%= link_to 'mark as read', tutor_path(current_user, tab: 'notifications', mark_read: notification.id), remote: true %>
+        <% else %>
+          <%= link_to 'mark as read', student_path(current_user, tab: 'notifications', mark_read: notification.id) %>
+        <% end %>
       <% end %>
-    <% end %>
-  </div>
+    </div>
 
-  <div class="col-1">
-    <%= link_to 'clear', notification_path(notification, notification_id: notification.id), method: :delete, remote: true %>
+    <div class="col-1">
+      <%= link_to 'clear', notification_path(notification, notification_id: notification.id), method: :delete, remote: true %>
+    </div>
   </div>
 
 </li>
