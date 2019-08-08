@@ -46,24 +46,102 @@
 <% else %>
   <!-- Mr Ngoh profile -->
 
-  <div class="container">
-    <div class="row">
+  <div class="container mb-5">
+    <div class="row justify-content-center">
       <h1>Welcome to the Music Academy!</h1>
     </div>
 
-    <div class="row">
+    <div class="row mt-5">
       <div class="col-6">
-        <img src="https://d2otge7lldl2wn.cloudfront.net/profile.jpeg" alt="" class="img-fluid">
+        <%= image_tag "profile.jpeg", class: 'img-fluid' %>
       </div>
 
       <div class="col-6">
-        <h1> Mr Wang Runding</h1>
-        <p class="p-4">
+        <h2 style="font-size: 2rem; text-align: left;"> Mr Ngoh</h2>
+        <p class="pt-4 pr-4 pb-4">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda hic laborum nam, nemo optio quo
           rem, repellendus, reprehenderit saepe sapiente sequi sint unde. Asperiores blanditiis commodi cumque
           distinctio eaque eius esse id illum in labore molestiae mollitia nesciunt odio porro praesentium
           quasi quia, quidem rerum sapiente ullam velit vero voluptatem.
         </p>
+      </div>
+    </div>
+
+    <div class="row pt-5 mt-5">
+
+      <div class="col-6 d-flex align-items-center">
+        <div>
+          <%= image_tag 'home_splash.jpg', class: 'img-fluid' %>
+        </div>
+      </div>
+
+      <div class="col-6">
+        <h1 class="text-left">A Tutor dedicated for his students</h1>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aperiam doloribus impedit itaque modi
+          nihil quas quod sit voluptatum. Culpa?
+        </p>
+      </div>
+
+    </div>
+
+    <hr class="mt-5" width="800px">
+
+    <div class="row pt-5 mt-5">
+      <div class="col-6">
+        <h1 class="text-left">Puting his heart and soul towards music</h1>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. A blanditiis consequatur ducimus eum,
+          ipsam iste libero molestiae placeat quo repellat!
+        </p>
+
+      </div>
+
+      <div class="col-6 d-flex align-items-center">
+        <div>
+          <%= image_tag 'home_splash.jpg', class: 'img-fluid' %>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="row pt-5">
+      <div class="col jumbotron" style="padding: 4rem 2rem 2rem 2rem;">
+        <div class="row justify-content-center mb-3">
+          <h1>Why Be Part of The Academy</h1>
+        </div>
+        <div class="row">
+          <div class="col-4">
+            <div class="row justify-content-center">
+              <%= image_tag 'presentation.svg', style: 'width: 7vw; height: 7vw;' %>
+            </div>
+            <h4 class="p-3 m-0 text-center brown-text">Video Lectures</h4>
+            <p class="p-3 text-center">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur, cumque dignissimos earum explicabo in
+              molestiae neque omnis quo reprehenderit vel?
+            </p>
+          </div>
+
+          <div class="col-4">
+            <div class="row justify-content-center">
+              <%= image_tag 'customer.svg', style: 'width: 7vw; height: 7vw;' %>
+            </div>
+            <h4 class="p-3 m-0 text-center brown-text">Community of music lovers</h4>
+            <p class="p-3 text-center">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid at corporis dignissimos et facilis
+              in natus officiis perspiciatis ratione voluptatem?
+            </p>
+          </div>
+          <div class="col-4">
+            <div class="row justify-content-center">
+              <%= image_tag 'bookshelf.svg', style: 'width: 7vw; height: 7vw;' %>
+            </div>
+            <h4 class="p-3 m-0 text-center brown-text">Useful Resources</h4>
+            <p class="p-3 text-center">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam eaque eum explicabo facere fugit in iste nobis repellat velit vero?
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
